@@ -3,6 +3,11 @@
         "vue.volar",
         "kuscamara.remove-unused-imports",
         "angular.ng-template",
-        "chakrounanas.turbo-console-log"
+        "chakrounanas.turbo-console-log",
+        "runem.lit-plugin",
+        "bierner.lit-html",
+        "christian-kohler.path-intellisense",
+        "NuclleaR.vscode-extension-auto-import",
+        "Perkovec.emoji"
     ]
 }
