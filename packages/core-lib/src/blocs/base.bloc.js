@@ -37,7 +37,6 @@ export class BaseBloc {
 
   subscribe(callback) {
     this.subscribers.push(callback);
-    this.notifySubscriber(callback);
   }
 
   unsubscribe(callback) {
