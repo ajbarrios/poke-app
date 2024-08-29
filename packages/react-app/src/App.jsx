@@ -3,6 +3,7 @@ import { notiBloc } from "../../core-lib/src/blocs/notifications/noti.bloc";
 import "./App.css";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import '../../core-ui/src/my-element'
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <my-element></my-element>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import { onMounted } from 'vue';
 import { notiBloc } from "../../core-lib/src/blocs/notifications/noti.bloc";
+import '../../core-ui/src/my-element'
 
 onMounted(() => {
   notiBloc.subscribe((state) => {
@@ -21,6 +22,7 @@ onMounted(() => {
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
+  <my-element></my-element>
   <HelloWorld msg="Vite + Vue" />
 </template>
 
