@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "vue.volar",
-        "kuscamara.remove-unused-imports"
+        "kuscamara.remove-unused-imports",
+        "angular.ng-template",
+        "chakrounanas.turbo-console-log"
     ]
 }
