@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "vue.volar",
+        "kuscamara.remove-unused-imports"
+    ]
+}

@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
   title = 'angular-app';
 
   async ngOnInit() {
-    console.log('Me ejecuto!')
     notiBloc.subscribe((state: NotiBlocState) => {
       console.log(JSON.stringify(state));
     });
