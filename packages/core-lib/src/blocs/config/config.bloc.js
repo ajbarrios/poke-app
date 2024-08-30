@@ -6,26 +6,28 @@ import { BaseBloc } from "../base.bloc";
  */
 class ConfigBloc extends BaseBloc {
   /**
-   * Método para cargar la configuración desde un fichero JSON.
    *
    * @returns {Promise<void>}
    */
   async loadConfig() {
     try {
-      // Usa fetch para cargar el archivo JSON
       const response = await fetch("/config.json");
       if (!response.ok) {
         throw new Error(`Failed to load config: ${response.statusText}`);
       }
       const config = await response.json();
 
-      // Actualizar el estado del bloc con la configuración cargada
       this.setState({ config });
-
-      console.log("Configuración cargada con éxito:", config);
     } catch (error) {
       console.error("Error cargando la configuración:", error);
     }
+  }
+
+  /**
+   * @returns {import("./config.model").ConfigType}
+   */
+  get config() {
+    return this.state.config;
   }
 
   constructor() {

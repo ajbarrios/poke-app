@@ -1,46 +1,37 @@
-import { useEffect, useState } from "react";
-import { notiBloc } from "../../core-lib/src/blocs/notifications/noti.bloc";
+import { useEffect, useRef, useState } from "react";
+import { cardBloc } from "../../core-lib/src/blocs/cards/card.bloc";
+import "../../core-ui/src/components/cards-list.element.js";
 import "./App.css";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import '../../core-ui/src/my-element'
 
 function App() {
+  
+  const [cards, setCards] = useState([]);
+  const cardListRef = useRef(null);
+
   useEffect(() => {
-    notiBloc.subscribe((state) => {
-      console.log(JSON.stringify(state));
-    });
+    const fetchCards = async () => {
+      try {
+        const allCards = await cardBloc.getAllCards();
+        setCards(allCards);
+      } catch (error) {
+        console.error("Error fetching cards:", error);
+      }
+    };
+
+    fetchCards();
   }, []);
 
-  notiBloc.showInfo("Se mostrará?");
-
-  const [count, setCount] = useState(0);
-
-  console.log(notiBloc.getState());
+  useEffect(() => {
+    if (cardListRef.current) {
+      cardListRef.current.cards = cards;
+    }
+  }, [cards]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <my-element></my-element>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main>
+        <poke-cards-list ref={cardListRef}></poke-cards-list>
+      </main>
     </>
   );
 }

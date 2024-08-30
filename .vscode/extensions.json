@@ -8,6 +8,7 @@
         "bierner.lit-html",
         "christian-kohler.path-intellisense",
         "NuclleaR.vscode-extension-auto-import",
-        "Perkovec.emoji"
+        "Perkovec.emoji",
+        "esbenp.prettier-vscode"
     ]
 }
