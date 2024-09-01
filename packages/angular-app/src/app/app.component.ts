@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { cardBloc } from '../../../core-lib/src/blocs/cards/card.bloc';
-import { CardType } from '../../../core-lib/src/blocs/cards/card.model';
+import { cardBloc } from '../../../core-lib-ts/src/blocs/cards/card.bloc';
+import { CardType } from '../../../core-lib-ts/src/blocs/cards/card.model';
 import {
   notiBloc,
   NotiBlocState,
-} from '../../../core-lib/src/blocs/notifications/noti.bloc';
+} from '../../../core-lib-ts/src/blocs/notifications/noti.bloc';
 import '../../../core-ui/src/components/cards-list.element.js';
 import '../../../core-ui/src/my-element.js';
 

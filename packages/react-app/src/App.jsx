@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { cardBloc } from "../../core-lib/src/blocs/cards/card.bloc";
+import { cardBloc } from "../../core-lib-ts/src/blocs/cards/card.bloc";
 import "../../core-ui/src/components/cards-list.element.js";
 import "./App.css";
 

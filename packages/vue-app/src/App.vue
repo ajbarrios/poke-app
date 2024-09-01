@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { cardBloc } from '../../core-lib/src/blocs/cards/card.bloc';
-import { notiBloc } from "../../core-lib/src/blocs/notifications/noti.bloc";
+import { cardBloc } from '../../core-lib-ts/src/blocs/cards/card.bloc';
+import { notiBloc } from "../../core-lib-ts/src/blocs/notifications/noti.bloc";
 import '../../core-ui/src/components/cards-list.element';
 
 const cardListRef = ref(null);

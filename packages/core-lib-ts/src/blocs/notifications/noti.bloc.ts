@@ -1,12 +1,11 @@
 import { BaseBloc } from "../base.bloc";
-import { Noti } from "./noti.model";
+import { Noti, NotiType } from "./noti.model";
 
-/**
- * @typedef {Object} NotiBlocState
- * @typedef {import("./noti.model").NotiType} noti
- */
-/** @type {BaseBloc<NotiBlocState>} */
-class NotiBloc extends BaseBloc {
+export type NotiBlocState = {
+  noti: NotiType;
+};
+
+class NotiBloc extends BaseBloc<NotiBlocState> {
   /**
    *
    * @param {string} msg
@@ -18,6 +17,10 @@ class NotiBloc extends BaseBloc {
 
   constructor() {
     super("poke_noti_state");
+  }
+
+  get noti() {
+    return this.getState().noti;
   }
 
   /**
