@@ -13,7 +13,6 @@ class CardBloc extends BaseBloc<CardBlocState> {
     const cardsRepository = new CardsRepository();
     const cards = await cardsRepository.getAllCards();
     this.setState({ cards });
-    console.log("He llamado al repositorio");
     return cards;
   }
   constructor() {
