@@ -12,6 +12,8 @@ describe("Cards BLoC", () => {
     vi.mocked(axios, true).get.mockResolvedValueOnce(config200);
     await configBloc.loadConfig();
 
+    vi.clearAllMocks();
+
     vi.mocked(axios, true).get.mockResolvedValueOnce(cards200);
     const cards = await cardBloc.getAllCards();
 
@@ -21,5 +23,11 @@ describe("Cards BLoC", () => {
     expect(firstCard.supertype).toEqual("Pokémon");
     expect(firstCard.level).toEqual("52");
     expect(firstCard.hp).toEqual("130");
+
+    const cachedCards = await cardBloc.getAllCards();
+
+    expect(cachedCards).toEqual(cards);
+
+    expect(axios.get).toHaveBeenCalledTimes(1);
   });
 });
