@@ -24,24 +24,21 @@ export class CardList extends LitElement {
       .card {
         border: 1px solid #ccc;
         border-radius: 8px;
-        padding: 16px;
+        overflow: hidden;
         background-color: #fff;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
       }
 
+      .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+
       .card:hover {
         transform: translateY(-5px);
-      }
-
-      .card-title {
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-bottom: 8px;
-      }
-
-      .card-details {
-        font-size: 1em;
       }
 
       @media (max-width: 600px) {
@@ -50,7 +47,7 @@ export class CardList extends LitElement {
         }
 
         .card {
-          padding: 12px;
+          padding: 0;
         }
       }
     `;
@@ -66,10 +63,7 @@ export class CardList extends LitElement {
         this.cards.map(
           (card) => html`
             <div class="card">
-              <div class="card-title">${card.nameCard}</div>
-              <div class="card-details">HP: ${card.hp}</div>
-              <div class="card-details">Supertype: ${card.supertype}</div>
-              <div class="card-details">Level: ${card.level}</div>
+              <img src="${card.imageCard}" alt="${card.nameCard}" />
             </div>
           `
         )}

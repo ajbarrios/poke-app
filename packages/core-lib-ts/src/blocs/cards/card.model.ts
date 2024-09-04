@@ -4,6 +4,7 @@ export type CardType = {
   supertype: string;
   level: string;
   hp: string;
+  imageCard: string;
 };
 
 export class Card {
@@ -12,6 +13,7 @@ export class Card {
   supertype: string;
   level: string;
   hp: string;
+  imageCard: string;
 
   constructor(card: CardType) {
     this.idCard = card.idCard;
@@ -19,5 +21,6 @@ export class Card {
     this.supertype = card.supertype;
     this.level = card.level;
     this.hp = card.hp;
+    this.imageCard = card.imageCard;
   }
 }

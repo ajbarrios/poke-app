@@ -23,6 +23,9 @@ describe("Cards BLoC", () => {
     expect(firstCard.supertype).toEqual("Pokémon");
     expect(firstCard.level).toEqual("52");
     expect(firstCard.hp).toEqual("130");
+    expect(firstCard.imageCard).toEqual(
+      "https://images.pokemontcg.io/dp3/1_hires.png"
+    );
 
     const cachedCards = await cardBloc.getAllCards();
 

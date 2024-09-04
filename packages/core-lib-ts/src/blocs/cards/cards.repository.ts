@@ -16,6 +16,7 @@ export class CardsRepository {
           supertype: card.supertype,
           level: card.level,
           hp: card.hp,
+          imageCard: card.images.large,
         });
       });
 
