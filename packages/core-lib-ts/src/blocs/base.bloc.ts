@@ -1,10 +1,10 @@
 export class BaseBloc<T> {
-  subscribers: Array<(state: T) => void>;
+  subscribers: Set<(state: T) => void>;
   state: T | null;
   persistKey: string;
 
   constructor(persistKey: string) {
-    this.subscribers = [];
+    this.subscribers = new Set();
     this.state = null;
     this.persistKey = persistKey;
 
@@ -40,14 +40,11 @@ export class BaseBloc<T> {
   }
 
   subscribe(callback: (state: T) => void): void {
-    this.subscribers.push(callback);
+    this.subscribers.add(callback);
   }
 
   unsubscribe(callback: (state: T) => void): void {
-    const index = this.subscribers.indexOf(callback);
-    if (index !== -1) {
-      this.subscribers.splice(index, 1);
-    }
+    this.subscribers.delete(callback);
   }
 
   notifySubscribers(): void {
